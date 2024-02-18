@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactNode } from 'react';
 import { BaseProps } from './base-props';
 
-export class TodoItem {
+export class TodoItem implements BaseProps {
+  children?: ReactNode;
+
   id: number;
   text: string;
 

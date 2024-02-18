@@ -24,3 +24,9 @@ export interface TodoItems extends BaseProps {
 export interface TodoAddFn extends BaseProps {
   onTodoAdd: (todoItem: TodoItem) => void;
 }
+
+export interface TodoCtxObj {
+  items: TodoItem[];
+  addTodoItem: (item: TodoItem) => void;
+  deleteTodoItem: (itemId: number) => void;
+}

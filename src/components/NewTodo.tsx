@@ -1,9 +1,13 @@
 import { useRef } from 'react';
 import styles from './NewTodo.module.scss';
-import { TodoItem, TodoAddFn } from '../models/todos';
+import { TodoItem } from '../models/todos';
+import { useAtom } from 'jotai';
+import { todosAtom } from '../molecule/todo.atoms';
 
-const NewTodo: React.FC<TodoAddFn> = function (props) {
+const NewTodo: React.FC = function () {
   const todoTextInputRef = useRef<HTMLInputElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_todos, setTodos] = useAtom(todosAtom);
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -14,7 +18,7 @@ const NewTodo: React.FC<TodoAddFn> = function (props) {
       return;
     }
 
-    props.onTodoAdd(new TodoItem(enteredVal));
+    setTodos((prevTodos) => prevTodos.concat(new TodoItem(enteredVal)));
   };
 
   return (

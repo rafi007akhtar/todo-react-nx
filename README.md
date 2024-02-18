@@ -4,8 +4,9 @@ This project is created by roughly following the "React with Typescript" section
 
 The motive of this project is not to create a Todo app, but instead to learn:
 
-- Working with typescript on a ReactJS project
-- Using the [Nx CLI tool](https://nx.dev/getting-started/tutorials/react-standalone-tutorial) to create and structure a standalone ReactJS project, instead of the barebones create-react-app.
+- Working with Typescript on a ReactJS project.
+- Using the [Nx CLI tool](https://nx.dev/getting-started/tutorials/react-standalone-tutorial) to create and structure a standalone ReactJS project, instead of the barebones `create-react-app`.
+- Managing state with [Jotai](https://github.com/pmndrs/jotai) instead of the Context API.
 
 ## Project creation
 
@@ -20,7 +21,7 @@ And the options chosen were:
 - vite for bundler
 - cypress for testing
 - SASS (.scss) for styling
-- No CI / CD integration
+- no CI / CD integration.
 
 The project came structured with Typescript out of the box.
 

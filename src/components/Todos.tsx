@@ -1,18 +1,19 @@
 import React from 'react';
 import styles from './Todos.module.scss';
-import { TodoItems } from 'src/models/todos';
 import Todo from './Todo';
+import { useAtom } from 'jotai';
+import { todosAtom } from '../molecule/todo.atoms';
 
-const Todos: React.FC<TodoItems> = (props) => {
-  const deleteTodo = (id: number) => {
-    // console.log('delete');
-    if (props.onTodoClick) {
-      props.onTodoClick(id);
-    }
-  };
+const Todos: React.FC = () => {
+  const [todoItems, setTodoItems] = useAtom(todosAtom);
+
+  function deleteTodo(id: number) {
+    setTodoItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  }
+
   return (
     <ul className={styles['todos']}>
-      {props.items?.map((item) => (
+      {todoItems?.map((item) => (
         <Todo
           key={item.id}
           id={item.id}
